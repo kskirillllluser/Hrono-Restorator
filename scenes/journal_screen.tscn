@@ -1,0 +1,77 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/journal_screen.gd" id="1_journal"]
+
+[node name="Journal" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+visible = false
+script = ExtResource("1_journal")
+
+[node name="Dim" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.054902, 0.074510, 0.113725, 0.6)
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 260.0
+offset_top = 130.0
+offset_right = 1660.0
+offset_bottom = 950.0
+
+[node name="Heading" type="Label" parent="Panel"]
+offset_left = 40.0
+offset_top = 30.0
+offset_right = 900.0
+offset_bottom = 62.0
+text = "ЖУРНАЛ РЕСТАВРАТОРА"
+
+[node name="Sub" type="Label" parent="Panel"]
+offset_left = 42.0
+offset_top = 78.0
+offset_right = 1300.0
+offset_bottom = 106.0
+
+[node name="RulesCaption" type="Label" parent="Panel"]
+offset_left = 40.0
+offset_top = 130.0
+offset_right = 400.0
+offset_bottom = 154.0
+text = "ПРАВИЛА"
+
+[node name="RulesList" type="VBoxContainer" parent="Panel"]
+offset_left = 40.0
+offset_top = 166.0
+offset_right = 680.0
+offset_bottom = 900.0
+theme_override_constants/separation = 10
+
+[node name="HistoryCaption" type="Label" parent="Panel"]
+offset_left = 720.0
+offset_top = 130.0
+offset_right = 1100.0
+offset_bottom = 154.0
+text = "ИСТОРИЯ ВЕЩИ"
+
+[node name="HistoryList" type="VBoxContainer" parent="Panel"]
+offset_left = 720.0
+offset_top = 166.0
+offset_right = 1360.0
+offset_bottom = 900.0
+theme_override_constants/separation = 10
+
+[node name="CloseButton" type="Button" parent="Panel"]
+offset_left = 1200.0
+offset_top = 740.0
+offset_right = 1340.0
+offset_bottom = 790.0
+text = "Закрыть"

@@ -1,0 +1,157 @@
+[gd_scene format=3 uid="uid://mb0vo6oyq884"]
+
+[ext_resource type="Script" uid="uid://ds607ve2e8nw4" path="res://scripts/main.gd" id="1_main"]
+[ext_resource type="Texture2D" uid="uid://dti3c7vld2qlt" path="res://pix/bg_workshop.png" id="2_bg"]
+[ext_resource type="Texture2D" uid="uid://cffyaedpjfb5a" path="res://pix/dot.png" id="3_dot"]
+[ext_resource type="PackedScene" path="res://scenes/clock.tscn" id="4_clock"]
+[ext_resource type="PackedScene" path="res://scenes/scanner.tscn" id="5_scanner"]
+[ext_resource type="PackedScene" path="res://scenes/terminal.tscn" id="6_terminal"]
+[ext_resource type="PackedScene" path="res://scenes/hud.tscn" id="7_hud"]
+[ext_resource type="PackedScene" path="res://scenes/bench.tscn" id="8_bench"]
+[ext_resource type="Script" uid="uid://c82bprdvknrwp" path="res://scripts/glitch_overlay.gd" id="9_glitch"]
+[ext_resource type="Shader" uid="uid://bsybtpmb3xgfd" path="res://shaders/post.gdshader" id="10_post"]
+[ext_resource type="PackedScene" path="res://scenes/title_menu.tscn" id="11_title"]
+[ext_resource type="PackedScene" path="res://scenes/intro_sequence.tscn" id="12_intro"]
+[ext_resource type="PackedScene" path="res://scenes/report_screen.tscn" id="13_report"]
+[ext_resource type="PackedScene" path="res://scenes/journal_screen.tscn" id="14_journal"]
+[ext_resource type="PackedScene" path="res://scenes/pause_menu.tscn" id="15_pause"]
+
+[sub_resource type="Gradient" id="Gradient_dust"]
+offsets = PackedFloat32Array(0, 0.5, 1)
+colors = PackedColorArray(1, 0.9, 0.7, 0, 1, 0.9, 0.7, 0.5, 1, 0.9, 0.7, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_post"]
+shader = ExtResource("10_post")
+shader_parameter/vignette = 0.3
+shader_parameter/grain = 0.025
+shader_parameter/tint = Color(0.03, 0.05, 0.09, 1)
+
+[node name="Main" type="Node" unique_id=937139899]
+script = ExtResource("1_main")
+
+[node name="World" type="Node2D" parent="." unique_id=513100827]
+
+[node name="Background" type="Sprite2D" parent="World" unique_id=446848983]
+scale = Vector2(4, 4)
+texture = ExtResource("2_bg")
+centered = false
+
+[node name="Dust" type="CPUParticles2D" parent="World" unique_id=1977483750]
+position = Vector2(1160, 560)
+amount = 30
+texture = ExtResource("3_dot")
+lifetime = 10.0
+preprocess = 10.0
+emission_shape = 3
+emission_rect_extents = Vector2(260, 280)
+direction = Vector2(-0.2, -1)
+spread = 50.0
+gravity = Vector2(0, -1)
+initial_velocity_min = 3.0
+initial_velocity_max = 9.0
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+color_ramp = SubResource("Gradient_dust")
+
+[node name="Clock" parent="World" unique_id=228314621 instance=ExtResource("4_clock")]
+position = Vector2(760, 368)
+
+[node name="UILayer" type="CanvasLayer" parent="." unique_id=1321092135]
+layer = 5
+
+[node name="Root" type="Control" parent="UILayer" unique_id=866640295]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Scanner" parent="UILayer/Root" unique_id=80346930 instance=ExtResource("5_scanner")]
+anchors_preset = 0
+
+[node name="Terminal" parent="UILayer/Root" unique_id=1519495404 instance=ExtResource("6_terminal")]
+anchors_preset = 0
+
+[node name="Hud" parent="UILayer/Root" unique_id=776206160 instance=ExtResource("7_hud")]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 1888.0
+offset_bottom = 88.0
+
+[node name="Bench" parent="UILayer/Root" unique_id=1885897454 instance=ExtResource("8_bench")]
+layout_mode = 1
+
+[node name="Glitch" type="Control" parent="UILayer/Root" unique_id=557140809]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("9_glitch")
+
+[node name="OverlayLayer" type="CanvasLayer" parent="." unique_id=1241125156]
+layer = 10
+
+[node name="Root" type="Control" parent="OverlayLayer" unique_id=631959918]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TitleMenu" parent="OverlayLayer/Root" unique_id=446930766 instance=ExtResource("11_title")]
+layout_mode = 1
+
+[node name="Intro" parent="OverlayLayer/Root" unique_id=1468886281 instance=ExtResource("12_intro")]
+layout_mode = 1
+
+[node name="Report" parent="OverlayLayer/Root" unique_id=1301997652 instance=ExtResource("13_report")]
+layout_mode = 1
+
+[node name="PostLayer" type="CanvasLayer" parent="." unique_id=294251236]
+layer = 30
+
+[node name="Post" type="ColorRect" parent="PostLayer" unique_id=1134966513]
+material = SubResource("ShaderMaterial_post")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TopLayer" type="CanvasLayer" parent="." unique_id=554920018]
+process_mode = 3
+layer = 40
+
+[node name="Root" type="Control" parent="TopLayer" unique_id=577061328]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Fade" type="ColorRect" parent="TopLayer/Root" unique_id=842973673]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.043137, 0.058824, 0.090196, 1)
+
+[node name="PauseMenu" parent="TopLayer/Root" unique_id=508182433 instance=ExtResource("15_pause")]
+layout_mode = 1
+
+[node name="Journal" parent="TopLayer/Root" unique_id=2074355978 instance=ExtResource("14_journal")]
+layout_mode = 1

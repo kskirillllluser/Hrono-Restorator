@@ -1,0 +1,135 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/minigame.gd" id="1_minigame"]
+
+[node name="MiniGame" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_minigame")
+
+[node name="Dim" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.054902, 0.074510, 0.113725, 0.6)
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 400.0
+offset_top = 190.0
+offset_right = 1520.0
+offset_bottom = 850.0
+
+[node name="Heading" type="Label" parent="Panel"]
+offset_left = 30.0
+offset_top = 24.0
+offset_right = 800.0
+offset_bottom = 56.0
+text = "РУЧНАЯ СБОРКА ПРУЖИНЫ"
+
+[node name="Hint" type="Label" parent="Panel"]
+offset_left = 30.0
+offset_top = 70.0
+offset_right = 1090.0
+offset_bottom = 140.0
+autowrap_mode = 3
+
+[node name="Drawer" type="Panel" parent="Panel"]
+offset_left = 40.0
+offset_top = 170.0
+offset_right = 340.0
+offset_bottom = 550.0
+
+[node name="DrawerTitle" type="Label" parent="Panel/Drawer"]
+offset_top = 14.0
+offset_right = 300.0
+offset_bottom = 44.0
+text = "Шкаф деталей"
+horizontal_alignment = 1
+
+[node name="PartA" type="TextureRect" parent="Panel/Drawer"]
+offset_left = 40.0
+offset_top = 110.0
+offset_right = 260.0
+offset_bottom = 280.0
+
+[node name="PartB" type="TextureRect" parent="Panel/Drawer"]
+offset_left = 162.0
+offset_top = 90.0
+offset_right = 280.0
+offset_bottom = 230.0
+
+[node name="PartLabelA" type="Label" parent="Panel/Drawer"]
+offset_left = 20.0
+offset_top = 230.0
+offset_right = 148.0
+offset_bottom = 260.0
+text = "14 зубцов"
+horizontal_alignment = 1
+
+[node name="PartLabelB" type="Label" parent="Panel/Drawer"]
+offset_left = 156.0
+offset_top = 230.0
+offset_right = 284.0
+offset_bottom = 260.0
+text = "10 зубцов"
+horizontal_alignment = 1
+
+[node name="Cost" type="Label" parent="Panel/Drawer"]
+offset_top = 330.0
+offset_right = 300.0
+offset_bottom = 360.0
+text = "стоит 1 материал"
+horizontal_alignment = 1
+
+[node name="Socket" type="Control" parent="Panel"]
+offset_left = 420.0
+offset_top = 160.0
+offset_right = 820.0
+offset_bottom = 560.0
+tooltip_text = "Гнездо детали"
+
+[node name="RotateLeft" type="Button" parent="Panel"]
+offset_left = 870.0
+offset_top = 230.0
+offset_right = 966.0
+offset_bottom = 316.0
+text = "←"
+
+[node name="RotateRight" type="Button" parent="Panel"]
+offset_left = 980.0
+offset_top = 230.0
+offset_right = 1076.0
+offset_bottom = 316.0
+text = "→"
+
+[node name="RotateCaption" type="Label" parent="Panel"]
+offset_left = 870.0
+offset_top = 326.0
+offset_right = 1076.0
+offset_bottom = 386.0
+text = "повернуть
+кольцо"
+horizontal_alignment = 1
+
+[node name="CancelButton" type="Button" parent="Panel"]
+offset_left = 870.0
+offset_top = 430.0
+offset_right = 1076.0
+offset_bottom = 490.0
+text = "Отмена"
+
+[node name="FinishButton" type="Button" parent="Panel"]
+offset_left = 870.0
+offset_top = 520.0
+offset_right = 1076.0
+offset_bottom = 592.0
+text = "Закрепить"
+
+[connection signal="draw" from="Panel/Socket" to="." method="_draw_socket"]

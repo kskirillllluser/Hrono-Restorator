@@ -1,0 +1,234 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/report_screen.gd" id="1_report"]
+
+[node name="Report" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+visible = false
+script = ExtResource("1_report")
+
+[node name="Dim" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.054902, 0.074510, 0.113725, 0.7)
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 170.0
+offset_top = 110.0
+offset_right = 1750.0
+offset_bottom = 990.0
+
+[node name="Heading" type="Label" parent="Panel"]
+offset_left = 50.0
+offset_top = 36.0
+offset_right = 900.0
+offset_bottom = 72.0
+text = "ОТЧЁТ РЕСТАВРАЦИИ · «АСТРА-01»"
+
+[node name="RowName1" type="Label" parent="Panel"]
+offset_left = 50.0
+offset_top = 110.0
+offset_right = 400.0
+offset_bottom = 144.0
+text = "Функциональность"
+
+[node name="RowSub1" type="Label" parent="Panel"]
+offset_left = 52.0
+offset_top = 150.0
+offset_right = 400.0
+offset_bottom = 176.0
+text = "часы идут (обязательно)"
+
+[node name="RowBar1" type="Control" parent="Panel"]
+offset_left = 400.0
+offset_top = 122.0
+offset_right = 820.0
+offset_bottom = 144.0
+custom_minimum_size = Vector2(420, 22)
+
+[node name="Back" type="Panel" parent="Panel/RowBar1"]
+offset_right = 420.0
+offset_bottom = 22.0
+
+[node name="Fill" type="Panel" parent="Panel/RowBar1"]
+offset_right = 22.0
+offset_bottom = 22.0
+
+[node name="RowValue1" type="Label" parent="Panel"]
+offset_left = 840.0
+offset_top = 112.0
+offset_right = 900.0
+offset_bottom = 148.0
+text = "100"
+
+[node name="RowName2" type="Label" parent="Panel"]
+offset_left = 50.0
+offset_top = 198.0
+offset_right = 400.0
+offset_bottom = 232.0
+text = "Стабильность"
+
+[node name="RowSub2" type="Label" parent="Panel"]
+offset_left = 52.0
+offset_top = 238.0
+offset_right = 400.0
+offset_bottom = 264.0
+text = "согласованность времён деталей"
+
+[node name="RowBar2" type="Control" parent="Panel"]
+offset_left = 400.0
+offset_top = 210.0
+offset_right = 820.0
+offset_bottom = 232.0
+custom_minimum_size = Vector2(420, 22)
+
+[node name="Back" type="Panel" parent="Panel/RowBar2"]
+offset_right = 420.0
+offset_bottom = 22.0
+
+[node name="Fill" type="Panel" parent="Panel/RowBar2"]
+offset_right = 22.0
+offset_bottom = 22.0
+
+[node name="RowValue2" type="Label" parent="Panel"]
+offset_left = 840.0
+offset_top = 200.0
+offset_right = 900.0
+offset_bottom = 236.0
+text = "80"
+
+[node name="RowName3" type="Label" parent="Panel"]
+offset_left = 50.0
+offset_top = 286.0
+offset_right = 400.0
+offset_bottom = 320.0
+text = "Подлинность"
+
+[node name="RowSub3" type="Label" parent="Panel"]
+offset_left = 52.0
+offset_top = 326.0
+offset_right = 400.0
+offset_bottom = 352.0
+text = "сколько родного сохранено"
+
+[node name="RowBar3" type="Control" parent="Panel"]
+offset_left = 400.0
+offset_top = 298.0
+offset_right = 820.0
+offset_bottom = 320.0
+custom_minimum_size = Vector2(420, 22)
+
+[node name="Back" type="Panel" parent="Panel/RowBar3"]
+offset_right = 420.0
+offset_bottom = 22.0
+
+[node name="Fill" type="Panel" parent="Panel/RowBar3"]
+offset_right = 22.0
+offset_bottom = 22.0
+
+[node name="RowValue3" type="Label" parent="Panel"]
+offset_left = 840.0
+offset_top = 288.0
+offset_right = 900.0
+offset_bottom = 324.0
+text = "95"
+
+[node name="RowName4" type="Label" parent="Panel"]
+offset_left = 50.0
+offset_top = 374.0
+offset_right = 400.0
+offset_bottom = 408.0
+text = "Экономность"
+
+[node name="RowSub4" type="Label" parent="Panel"]
+offset_left = 52.0
+offset_top = 414.0
+offset_right = 400.0
+offset_bottom = 440.0
+text = "сколько ресурсов осталось"
+
+[node name="RowBar4" type="Control" parent="Panel"]
+offset_left = 400.0
+offset_top = 386.0
+offset_right = 820.0
+offset_bottom = 408.0
+custom_minimum_size = Vector2(420, 22)
+
+[node name="Back" type="Panel" parent="Panel/RowBar4"]
+offset_right = 420.0
+offset_bottom = 22.0
+
+[node name="Fill" type="Panel" parent="Panel/RowBar4"]
+offset_right = 22.0
+offset_bottom = 22.0
+
+[node name="RowValue4" type="Label" parent="Panel"]
+offset_left = 840.0
+offset_top = 376.0
+offset_right = 900.0
+offset_bottom = 412.0
+text = "75"
+
+[node name="Stamp" type="Label" parent="Panel"]
+offset_left = 960.0
+offset_top = 110.0
+offset_right = 1520.0
+offset_bottom = 220.0
+text = " "
+
+[node name="EndText" type="Label" parent="Panel"]
+offset_left = 960.0
+offset_top = 240.0
+offset_right = 1520.0
+offset_bottom = 350.0
+autowrap_mode = 3
+
+[node name="RouteHint" type="Label" parent="Panel"]
+offset_left = 960.0
+offset_top = 380.0
+offset_right = 1520.0
+offset_bottom = 490.0
+autowrap_mode = 3
+
+[node name="DecisionsTitle" type="Label" parent="Panel"]
+offset_left = 50.0
+offset_top = 470.0
+offset_right = 400.0
+offset_bottom = 502.0
+text = "Ваши решения:"
+
+[node name="Decisions" type="Label" parent="Panel"]
+offset_left = 52.0
+offset_top = 506.0
+offset_right = 912.0
+offset_bottom = 706.0
+autowrap_mode = 3
+
+[node name="Stats" type="Label" parent="Panel"]
+offset_left = 50.0
+offset_top = 730.0
+offset_right = 950.0
+offset_bottom = 758.0
+
+[node name="AgainButton" type="Button" parent="Panel"]
+offset_left = 960.0
+offset_top = 760.0
+offset_right = 1260.0
+offset_bottom = 832.0
+text = "Другой маршрут"
+
+[node name="MenuButton" type="Button" parent="Panel"]
+offset_left = 1280.0
+offset_top = 760.0
+offset_right = 1520.0
+offset_bottom = 832.0
+text = "Главное меню"

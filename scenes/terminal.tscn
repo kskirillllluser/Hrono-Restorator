@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/terminal.gd" id="1_terminal"]
+[ext_resource type="Script" path="res://scripts/scanlines.gd" id="2_scanlines"]
+
+[node name="Terminal" type="Control"]
+offset_left = 1336.0
+offset_top = 160.0
+offset_right = 1880.0
+offset_bottom = 560.0
+clip_contents = true
+script = ExtResource("1_terminal")
+
+[node name="Body" type="Control" parent="."]
+offset_right = 544.0
+offset_bottom = 400.0
+
+[node name="Scanlines" type="Control" parent="."]
+offset_right = 544.0
+offset_bottom = 400.0
+mouse_filter = 2
+script = ExtResource("2_scanlines")

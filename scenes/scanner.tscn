@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/scanner.gd" id="1_scanner"]
+[ext_resource type="Script" path="res://scripts/scan_noise.gd" id="2_noise"]
+
+[node name="Scanner" type="Control"]
+offset_left = 40.0
+offset_top = 160.0
+offset_right = 584.0
+offset_bottom = 560.0
+clip_contents = true
+script = ExtResource("1_scanner")
+
+[node name="Head" type="Label" parent="."]
+offset_left = 14.0
+offset_top = 10.0
+offset_right = 300.0
+offset_bottom = 34.0
+text = "ХРОНОСКАНЕР"
+
+[node name="Body" type="Control" parent="."]
+offset_right = 544.0
+offset_bottom = 400.0
+
+[node name="Noise" type="Control" parent="."]
+offset_right = 544.0
+offset_bottom = 400.0
+mouse_filter = 2
+script = ExtResource("2_noise")
